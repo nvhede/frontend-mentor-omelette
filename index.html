@@ -1,0 +1,336 @@
+<!--DOCTYPE-->
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
+    <title> Simple Omelette Recipe </title>
+    <style>
+      @font-face {
+        font-family: Outfit;
+        src:url('./assets/fonts/outfit/Outfit-VariableFont_wght.ttf') format('truetype')
+      }
+
+      @font-face {
+        font-family: YoungSerif;
+        src:url('./assets/fonts/young-serif/YoungSerif-Regular.ttf') format('truetype')
+      }
+
+      /** Apply box sizing intuitively **/
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      /** Remove default margin since browsers apply it to all sorts of stuff **/
+      * {
+        margin: 0;
+      }
+
+      /** Keep media from overflowing, and make them block elements instead of inline */ 
+      img, picture, canvas, video, svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      /** Override button/input font styles applied by default from browser **/
+      input, button, textarea, select {
+        font: inherit;
+      }
+
+      /** Override default line wrap from browser **/
+      p h1 h2 h3 h4 h5 h6 {
+        overflow-wrap: break-word;
+      }
+
+      html {
+        --Eggshell: #F3E5D7;
+        --Brandy: #854632;
+        --DarkCharcoal: #312E2C;
+        --DarkRaspberry: #7A284E;
+        --Snow: #FFF7FB;
+        --WengeBrown: ##5F564D;
+        --White: #FFFFFF;
+        --WhiteCoffee: #E3DDD7;
+        --inner-padding: 40px;
+        --grid-padding: 32px;
+
+        height: 100vh;
+      }
+
+
+      /** Define our general variables, and other base CSS stuff **/
+      body {
+        /** to make our text more accessible **/
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+
+        font-family: 'Outfit', 'Times New Roman', Times, serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+
+        background-color: var(--Eggshell);
+        display: flex;
+        justify-content: center;
+      }
+
+      main {
+        margin-top: 125px;
+        margin-bottom: 125px;
+        height: min-content;
+        width: 736px;
+        border-radius: 24px;
+        padding: 3rem;
+        background-color: var(--White);
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;;
+        row-gap: var(--grid-padding);
+      }
+
+      section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      article .info{
+        background-color: var(--Snow);
+        padding: 28px;
+      }
+
+      h1 {
+        color: var(--DarkCharcoal);
+        font-size: 3rem;
+        line-height: 100%;
+        font-weight: 400;
+        font-family: 'YoungSerif', 'Times New Roman', Times, serif; 
+        margin-bottom: 24px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        color:  var(--Brandy);
+        font-weight: 400;
+        line-height: 100%;
+        font-family: 'YoungSerif', 'Times New Roman', Times, serif; 
+        margin-bottom: 24px;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+        color: var(--DarkRaspberry);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      p {
+        color: var(--WengeBrown);
+      }
+
+      hr {
+        border-top: 1px solid var(--WhiteCoffee);
+        width: 100%;
+      }
+
+      li {
+        color: var(--WengeBrown);
+        padding-left: 1rem;
+      }
+
+      ul {
+        padding-left: 1rem;
+      }
+
+      ol {
+        padding-left: 1rem;
+      }
+
+      table {
+
+      }
+
+      figure {
+        width: 100%;
+        padding-bottom: 40px;
+      }
+
+      .info {
+        display: flex;
+        align-self: stretch;
+        border-radius: 12px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: var(--Snow);
+        padding: 28px;
+      }
+
+      .rounded-corners {
+        border-radius: 12px;
+      }
+
+      .bold {
+        font-weight: 700;
+        color: var(--WengeBrown);
+      }
+
+      .nutritional-row {
+        display: flex;
+        flex: 1 1 auto;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 32px;
+        padding-right: 32px;
+      }
+
+      
+
+      /** Media Queries **/
+      /* CSS for mobile displays */
+      @media screen and (min-width: 305px) and (max-width: 679px) {
+        main {
+          margin: 0;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* CSS for desktop displays */
+      @media screen and (min-width: 680px) and (max-width: 780px) {
+        body {
+          width: 100%;
+          margin: 0;
+        }
+      }
+
+      /* CSS for landscape displays */
+      @media screen and (orientation: landscape) {
+
+      }
+
+       /* CSS for high-resolution displays */
+      @media screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+    <!-- Picture plus header  -->
+      <section>
+        <figure>
+          <img class="rounded-corners" src="./assets/images/image-omelette.jpeg" alt="A picture displaying an omelette with various vegetables" />
+        </figure>
+
+        <h1>Simple Omelette Recipe</h1>
+        
+        <p>
+          An easy and quick dish, perfect for any meal. This classic omeletee combines
+          beaten eggs cooked to perfection, optionallly filled wiht your choice of 
+          cheese, vegetables, or meats.
+        </p>
+      </section>
+
+    <section>
+      <article class="info">
+        <h3>Preparation time</h3>
+        <ul>
+          <li><span class="bold">Total:</span> Approximately 10 minutes</li>
+          <li><span class="bold">Preparation:</span> 5 minutes</li>
+          <li><span class="bold">Cooking:</span> 5 minutes</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Ingredients -->
+    <section>
+      <h2>Ingredients</h2>
+      <ul>
+        <li>2-3 large eggs</li>
+        <li>Salt, to taste </li>
+        <li>Pepper, to taste</li>
+        <li>1 tablespoon of butter or oil </li>
+        <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+      </ul>
+    </section>
+
+    <hr/>
+
+    <!-- Instructions -->
+    <section>
+      <h2>Instructions</h2>
+      <ol>
+        <li>
+         <span class="bold">Beat the eggs:</span> In a bowl, beat the eggs with a pinch of salt and pepper until 
+          they are well mixed. You can add a tablespoon of water or milk for a fluffier
+          texture.
+        </li>
+        <li>
+          <span class="bold">Heat the pan:</span> Place a non-stick frying pan over medium heat and add butter or oil.
+        </li>
+        <li>
+          <span class="bold">Cook the omelette:</span> Once the butter is melted and bubbling, pour in the eggs. Tilt 
+          the pan to ensure the eggs evenly coat the surface.
+        </li>
+        <li>
+          <span class="bold">Add fillings (optional):</span> When the eggs begin to set at the edges but are still slightly
+          runny in the middle, sprinkle your chosen fillings over one half of the omelette.
+        </li>
+        <li>
+          <span class="bold">Fold and serve:</span> As the omelette continues to cook, carefully lift one edge and fold it
+          over the fillings. Let it cook for another minute, then slide it onto a plate.
+        </li>
+        <li>
+          <span class="bold">Enjoy:</span> Serve hot, with additional salt and pepper if needed.
+        </li>
+      </ol>
+    </section>
+
+    <hr/>
+
+    <!-- Nutrition -->
+    <section>
+        <h2>Nutrition</h2>
+        <p>This table below shows nutritional values per serving without the additional fillings</p>
+        <div class="nutritional-row">
+          <p class="nutritional-label">Calories</p>
+          <p class="nutritional-label bold">277kcal</p>
+        </div>
+
+        <hr/>
+
+        <div class="nutritional-row">
+          <p class="nutritional-label">Carbs</p>
+          <p class="nutritional-label bold">0g</p>
+        </div>
+
+        <hr/>
+
+        <div class="nutritional-row">
+          <p class="nutritional-label">Protein</p>
+            <p class="nutritional-label bold">20g</p>
+        </div>
+        <hr/>
+        <div class="nutritional-row">
+          <p class="nutritional-label">Fat</p>
+            <p class="nutritional-label bold">22g</p>
+        </div>
+    </section>
+    </main>
+  </body>
+</html>
